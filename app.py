@@ -34,5 +34,10 @@ def appointment():
     # Redirect back to home page (you can also show a success page)
     return redirect(url_for("home"))
 
+import os
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # use Render's PORT or default to 5000
+    app.run(host="0.0.0.0", port=port, debug=False)
+
+
